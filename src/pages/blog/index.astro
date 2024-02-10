@@ -1,6 +1,7 @@
 ---
 import { getCollection } from "astro:content";
 import BlogCard from "../../components/blog-card.astro";
+import "@/styles/globals.css";
 
 const blogEntries = await getCollection("blog");
 ---
