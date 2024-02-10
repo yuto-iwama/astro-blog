@@ -1,0 +1,30 @@
+---
+import { Image } from "astro:assets";
+import type { CollectionEntry } from "astro:content";
+
+type Props = CollectionEntry<"blog">;
+
+const post = Astro.props;
+---
+
+<article class="group">
+  <a href={`/blog/${post.slug}`} class="h-52 block">
+    <Image
+      class="object-cover w-full h-full"
+      width={400}
+      height={200}
+      src={post.data.image.url}
+      alt={post.data.image.alt}
+    />
+  </a>
+
+  <div class="flex">
+    <span class="ml-auto">{post.data.pubDate.toLocaleDateString("ja")}</span>
+  </div>
+
+  <div>
+    <a href={`/blog/${post.slug}/`} class="group-hover:underline">
+      <h2 class="text-xl md:text-2xl">{post.data.title}</h2>
+    </a>
+  </div>
+</article>

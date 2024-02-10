@@ -1,5 +1,6 @@
 ---
 import { getCollection } from "astro:content";
+import BlogCard from "../../components/blog-card.astro";
 
 const blogEntries = await getCollection("blog");
 ---
@@ -14,14 +15,11 @@ const blogEntries = await getCollection("blog");
   </head>
   <body>
     <h1>Astro</h1>
-    <ul>
-      {
-        blogEntries.map((entry) => (
-          <li>
-            <a href={`/blog/${entry.slug}`}>{entry.data.title}</a>
-          </li>
-        ))
-      }
-    </ul>
+
+    <div
+      class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-6 gap-y-9 md:gap-y-11 lg:gap-y-16 lg:gap-x-8"
+    >
+      {blogEntries.map((entry) => <BlogCard {...entry} />)}
+    </div>
   </body>
 </html>
