@@ -1,0 +1,23 @@
+---
+import BaseHead from "@/components/layout/base-head.astro";
+import { cn } from "@/lib/utils";
+
+interface Props {
+  title: string;
+  description?: string;
+  bodyClass?: string;
+}
+
+const { title, description, bodyClass } = Astro.props;
+---
+
+<!doctype html>
+<html lang="ja">
+  <head>
+    <BaseHead title={title} description={description} />
+  </head>
+
+  <body class={cn("min-h-screen", bodyClass)}>
+    <slot />
+  </body>
+</html>

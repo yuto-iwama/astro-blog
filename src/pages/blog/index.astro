@@ -1,26 +1,16 @@
 ---
 import { getCollection } from "astro:content";
 import BlogCard from "../../components/blog-card.astro";
-import "@/styles/globals.css";
+import MainLayout from "@/layouts/main-layout.astro";
 
 const blogEntries = await getCollection("blog");
 ---
 
-<html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <meta name="viewport" content="width=device-width" />
-    <meta name="generator" content={Astro.generator} />
-    <title>Astro</title>
-  </head>
-  <body>
-    <h1>Astro</h1>
-
-    <div
-      class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-6 gap-y-9 md:gap-y-11 lg:gap-y-16 lg:gap-x-8"
-    >
-      {blogEntries.map((entry) => <BlogCard {...entry} />)}
-    </div>
-  </body>
-</html>
+<MainLayout title="ブログ">
+  <h1>ブログ記事一覧</h1>
+  <div
+    class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-6 gap-y-9 md:gap-y-11 lg:gap-y-16 lg:gap-x-8"
+  >
+    {blogEntries.map((entry) => <BlogCard {...entry} />)}
+  </div>
+</MainLayout>
