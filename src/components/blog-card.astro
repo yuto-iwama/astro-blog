@@ -11,7 +11,7 @@ const post = Astro.props;
 <article class="group">
   <a href={`/blog/${post.slug}`} class="h-52 block">
     <Image
-      class="object-cover w-full h-full"
+      class="object-cover w-full h-full rounded-lg"
       width={400}
       height={200}
       src={post.data.image.url}
