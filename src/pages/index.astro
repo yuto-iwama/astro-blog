@@ -3,5 +3,10 @@ import MainLayout from "@/layouts/main-layout.astro";
 ---
 
 <MainLayout title="Astro">
-  <h1>Astro</h1>
+  <Fragment slot="head">
+    <!-- トップページ（このページ）が出来上がるまで"/blog"にリダイレクト -->
+    <meta http-equiv="Refresh" content={`0; URL=${Astro.url.href}blog`} />
+  </Fragment>
 </MainLayout>
+
+<!-- TODO: 作る -->
