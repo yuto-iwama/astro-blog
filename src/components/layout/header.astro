@@ -1,0 +1,29 @@
+---
+import { cn } from "@/lib/utils";
+import { prefetch } from "astro:prefetch";
+import { MainNavigationMenu } from "../main-navigation-menu";
+
+interface Props {
+  class?: string;
+}
+
+const { class: className } = Astro.props;
+
+const siteName = "フロントエンドエンジニアのつれづれブログ";
+---
+
+<header
+  class={cn(
+    "flex items-center z-50 sticky top-0 bg-background border-b py-2",
+    className
+  )}
+>
+  <div class="container flex items-center gap-x-2">
+    <div>
+      <a href="/" class="text-sm">
+        {siteName}
+      </a>
+    </div>
+    <MainNavigationMenu client:load />
+  </div>
+</header>
