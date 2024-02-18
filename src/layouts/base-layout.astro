@@ -1,6 +1,7 @@
 ---
 import BaseHead from "@/components/layout/base-head.astro";
 import { cn } from "@/lib/utils";
+import { ViewTransitions } from "astro:transitions";
 
 interface Props {
   title: string;
@@ -15,6 +16,7 @@ const { title, description, bodyClass } = Astro.props;
 <html lang="ja">
   <head>
     <BaseHead title={title} description={description} />
+    <ViewTransitions />
     <slot name="head" />
   </head>
 
